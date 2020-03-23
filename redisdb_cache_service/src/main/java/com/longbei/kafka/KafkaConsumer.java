@@ -85,7 +85,6 @@ public class KafkaConsumer {
                     rowChage = CanalEntry.RowChange.parseFrom(entry.getStoreValue());
                 } catch (Exception e) {
                     logger.error("解析binlog日志异常", e);
-                    throw new RuntimeException("parse event has an error , data:" + entry.toString(), e);
                 }
 
                 CanalEntry.EventType eventType = rowChage.getEventType();
